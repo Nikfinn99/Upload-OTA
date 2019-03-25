@@ -5,7 +5,7 @@
 #include <SerialStream.h>
 #include <Led.h>
 
-void setupOTA(const char *pw = nullptr, const char *name = nullptr)
+void setupOTA(const char *pw = nullptr, const char *name = nullptr, bool use_mdns = true)
 {
   if (name && strlen(name) > 0)
   {
@@ -52,7 +52,7 @@ void setupOTA(const char *pw = nullptr, const char *name = nullptr)
     Serial.printf("Progress: %u%%\r", (progress / (total / 100)));
     DEBUG_LED.toggle();
   });
-  ArduinoOTA.begin();
+  ArduinoOTA.begin(use_mdns);
 }
 
 #endif // UPLOADOTA_H
