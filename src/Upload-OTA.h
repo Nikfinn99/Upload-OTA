@@ -49,7 +49,7 @@ void setupOTA(const char *pw = nullptr, const char *name = nullptr, bool use_mdn
     }
   });
   ArduinoOTA.onProgress([](unsigned int progress, unsigned int total) {
-    Serial.printf("Progress: %u%%\r", (progress / (total / 100)));
+    //Serial.printf("Progress: %u%%\r", (progress / (total / 100)));
     DEBUG_LED.toggle();
   });
   ArduinoOTA.begin(use_mdns);
